@@ -44,7 +44,7 @@ CREATE TABLE user_roles (
 2. Запустите скрипт:
 
 ```sh
-python bot.py
+Script.py
 ```
 
 ## Команды
