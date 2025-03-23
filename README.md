@@ -1,28 +1,28 @@
-# Документация к проекту Discord Bot
+# Project Documentation for Discord Bot
 
-## Описание
+## Description
 
-Этот проект представляет собой Discord-бота, который управляет ролями и правами пользователей на сервере. Бот подключается к базе данных SQLite для хранения информации о ролях.
+This project is a Discord bot that manages user roles and permissions on a server. The bot connects to an SQLite database to store role information.
 
-## Установка и запуск
+## Installation and Setup
 
-### Требования
+### Requirements
 
-- Python 3.12.4 или выше
-- Библиотека `disnake`
-- Библиотека `sqlite3`
+- Python 3.12.4 or higher
+- `disnake` library
+- `sqlite3` library
 
-### Установка зависимостей
+### Installing Dependencies
 
-Используйте команду `pip` для установки необходимых библиотек:
+Use the `pip` command to install the required libraries:
 
 ```sh
 pip install disnake
 ```
 
-### Настройка базы данных
+### Database Setup
 
-Создайте базу данных SQLite и таблицы для хранения ролей и пользовательских ролей:
+Create an SQLite database and tables to store roles and user roles:
 
 ```sql
 CREATE TABLE roles (
@@ -38,105 +38,105 @@ CREATE TABLE user_roles (
 );
 ```
 
-### Запуск бота
+### Running the Bot
 
-1. Замените `YOUR_BOT_TOKEN` в коде на ваш фактический токен бота.
-2. Запустите скрипт:
+1. Replace `YOUR_BOT_TOKEN` in the code with your actual bot token.
+2. Run the script:
 
 ```sh
 Script.py
 ```
 
-## Команды
+## Commands
 
-### Управление ролями
+### Role Management
 
 #### `/role_add <role_name>`
 
-Добавляет новую роль в базу данных.
+Adds a new role to the database.
 
-Пример:
+Example:
 ```
 /role_add Moderator
 ```
 
 #### `/role_list`
 
-Список всех ролей.
+Lists all roles.
 
-Пример:
+Example:
 ```
 /role_list
 ```
 
 #### `/role_get <role_name>`
 
-Получить информацию о роли по имени.
+Retrieves information about a role by its name.
 
-Пример:
+Example:
 ```
 /role_get Moderator
 ```
 
 #### `/role_delete <role_name>`
 
-Удалить роль из базы данных.
+Deletes a role from the database.
 
-Пример:
+Example:
 ```
 /role_delete Moderator
 ```
 
-### Управление пользовательскими ролями
+### User Role Management
 
 #### `/rolemember_add <user> <role_name>`
 
-Добавляет роль пользователю.
+Adds a role to a user.
 
-Пример:
+Example:
 ```
 /rolemember_add @user Moderator
 ```
 
 #### `/rolemember_list <user>`
 
-Список ролей пользователя.
+Lists the roles of a user.
 
-Пример:
+Example:
 ```
 /rolemember_list @user
 ```
 
 #### `/rolemember_delete <user> <role_name>`
 
-Удаляет роль у пользователя.
+Removes a role from a user.
 
-Пример:
+Example:
 ```
 /rolemember_delete @user Moderator
 ```
 
-### Проверка подключения к базе данных
+### Database Connection Check
 
 #### `/check_db_connection`
 
-Проверяет соединение с базой данных.
+Checks the connection to the database.
 
-Пример:
+Example:
 ```
 /check_db_connection
 ```
 
-## Обработка ошибок
+## Error Handling
 
-Бот включает базовые проверки и сообщения об ошибках для следующих случаев:
+The bot includes basic checks and error messages for the following cases:
 
-- Попытка добавить уже существующую роль.
-- Попытка добавить роль пользователю, когда роль не существует.
-- Попытка удалить роль у пользователя, когда роль не назначена.
-- Попытка удалить несуществующую роль.
+- Attempting to add an already existing role.
+- Attempting to add a role to a user when the role does not exist.
+- Attempting to remove a role from a user when the role is not assigned.
+- Attempting to delete a non-existent role.
 
-## Примечания
+## Notes
 
-1. Убедитесь, что ваш бот имеет необходимые разрешения на сервере Discord для выполнения команд (например, `Ban Members`, `Manage Roles`).
-2. Используйте подходящие права доступа для команд, чтобы ограничить их использование только администраторами или модераторами сервера.
+1. Ensure your bot has the necessary permissions on the Discord server to execute commands (e.g., `Ban Members`, `Manage Roles`).
+2. Use appropriate permissions for commands to restrict their usage to server administrators or moderators.
